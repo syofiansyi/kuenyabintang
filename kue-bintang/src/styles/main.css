@@ -1,229 +1,996 @@
-@import './variable.css';
-@import '../components/Animation.css';
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
-/* ========== SUPER CUTE ANIMATIONS ========== */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Poppins:wght@300;400;600&family=Short+Stack&display=swap');
+
+:root {
+    --pink: #FFB6C1;
+    --dark-pink: #FF69B4;
+    --yellow: #FFFACD;
+    --light-yellow: #FFF8E7;
+    --white: #FFFDFA;
+    --brown: #8B5A2B;
+    --mint: #B5EAD7;
+    --lavender: #E6E6FA;
+    --peach: #FFDAB9;
+    --warm-pink: #FF9BB3;
+    --warm-orange: #FFB347;
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+body {
+    font-family: 'Short Stack', 'Comic Neue', cursive;
+    background-color: var(--white);
+    color: var(--brown);
+    overflow-x: hidden;
+    background-image: 
+        url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="%23FFB6C1" opacity="0.1" d="M30,50 Q50,30 70,50 Q50,70 30,50" /></svg>'),
+        url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="%23FFDAB9" opacity="0.1" d="M30,50 Q50,30 70,50 Q50,70 30,50" /></svg>'),
+        radial-gradient(circle at 10% 20%, var(--lavender) 0%, transparent 20%),
+        radial-gradient(circle at 90% 30%, var(--mint) 0%, transparent 25%);
+    background-attachment: fixed;
+    background-size: 80px, 60px, auto, auto;
+    background-position: 10% 20%, 90% 70%, 0 0, 0 0;
 }
 
-@keyframes twinkle {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+/* Ultra Cute Heart-filled Header */
+header {
+    background: linear-gradient(135deg, var(--warm-pink) 0%, var(--pink) 100%);
+    padding: 20px 0;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-@keyframes float-bubble {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
-  100% { transform: translateY(0) rotate(0deg); }
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
 }
 
-/* ========== EXTRA CUTE ELEMENTS ========== */
-.cute-bubble {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  animation: float-bubble 8s ease-in-out infinite;
+.logo {
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
-.cute-heart {
-  position: absolute;
-  color: var(--pink);
-  animation: pulse 1.5s infinite, twinkle 2s infinite;
+.logo:before, .logo:after {
+    content: '❤';
+    position: absolute;
+    color: var(--yellow);
+    font-size: 24px;
+    animation: heartbeat 1.5s infinite;
 }
 
-/* ========== ENHANCED HEADER ========== */
-.header {
-  /* Existing styles */
-  background: linear-gradient(135deg, var(--pink), #ff7aa8);
+.logo:before {
+    left: -15px;
+    top: -15px;
+}
+
+.logo:after {
+    right: -15px;
+    bottom: -15px;
 }
 
 .logo img {
-  /* Add wiggle animation to logo */
-  animation: wiggle 3s ease-in-out infinite;
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.1));
+    transition: transform 0.3s;
+    background-color: var(--yellow);
+    border-radius: 50%;
+    padding: 5px;
 }
 
-/* ========== SUPER CUTE HERO SECTION ========== */
+.logo:hover img {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.logo-text h1 {
+    font-size: 36px;
+    color: white;
+    text-shadow: 3px 3px 0 var(--dark-pink);
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.logo-text h1:after {
+    content: '♥♥♥';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: var(--yellow);
+    animation: colorChange 3s infinite;
+}
+
+.logo-text p {
+    font-size: 18px;
+    color: white;
+    margin-top: 5px;
+    font-style: italic;
+    text-shadow: 1px 1px 0 var(--dark-pink);
+    background-color: rgba(255,255,255,0.2);
+    padding: 3px 10px;
+    border-radius: 15px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+    position: relative;
+}
+
+nav ul li:before {
+    content: '❤';
+    position: absolute;
+    color: var(--yellow);
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s;
+    animation: heartbeat 1.5s infinite;
+}
+
+nav ul li:hover:before {
+    opacity: 1;
+    left: -20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s;
+    padding: 8px 15px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a:before {
+    content: '→';
+    margin-right: 8px;
+    transition: all 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--yellow);
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-3px) scale(1.1);
+}
+
+nav ul li a:hover:before {
+    transform: rotate(360deg);
+}
+
+/* Super Warm & Fuzzy Hero Section - New Animations */
 .hero {
-  position: relative;
-  overflow: hidden;
+    background: linear-gradient(135deg, var(--light-yellow) 0%, var(--peach) 100%);
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23E86A92"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23E86A92"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23E86A92"/></svg>');
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 1;
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    animation: gentleWaves 60s linear infinite;
+}
+
+@keyframes gentleWaves {
+    0% { background-position: 0 0, 10% 10%; }
+    50% { background-position: 50% 50%, 60% 60%; }
+    100% { background-position: 0 0, 10% 10%; }
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .hero h2 {
-  position: relative;
-  display: inline-block;
+    font-size: 56px;
+    color: var(--dark-pink);
+    margin-bottom: 25px;
+    text-shadow: 4px 4px 0 rgba(255,182,193,0.3);
+    position: relative;
+    display: inline-block;
+    background-color: var(--yellow);
+    padding: 10px 30px;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    animation: gentleBounce 3s ease-in-out infinite;
+}
+
+@keyframes gentleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .hero h2:after {
-  content: '✨';
-  position: absolute;
-  right: -30px;
-  top: -15px;
-  font-size: 1.5rem;
-  animation: bounce 2s infinite, twinkle 3s infinite;
+    content: '✧･ﾟ: *✧･ﾟ:*';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--dark-pink);
+    font-size: 24px;
+    animation: sparkle 2s infinite alternate;
 }
 
-/* ========== PRODUCT CARD ENHANCEMENTS ========== */
-.product-card {
-  position: relative;
-  overflow: visible;
+@keyframes sparkle {
+    0% { opacity: 0.5; transform: translateX(-50%) scale(0.9); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
 }
 
-.product-card:before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border: 2px dashed var(--pink);
-  border-radius: 25px;
-  z-index: -1;
-  opacity: 0;
-  transition: all 0.3s ease;
+.hero p {
+    font-size: 24px;
+    color: var(--brown);
+    margin-bottom: 30px;
+    line-height: 1.6;
+    background-color: rgba(255,255,255,0.7);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    position: relative;
+    animation: fadeIn 2s ease-out;
 }
 
-.product-card:hover:before {
-  opacity: 1;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  animation: pulse 1.5s infinite;
-}
-
-.product-badge {
-  animation: bounce 1s infinite alternate;
-}
-
-/* ========== CUTE TESTIMONIALS ========== */
-.testimonial-card {
-  transition: all 0.3s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px) rotate(1deg);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
-
-.author-avatar {
-  transition: all 0.3s ease;
-}
-
-.testimonial-card:hover .author-avatar {
-  transform: scale(1.1);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* ========== ADORABLE CTA SECTION ========== */
-.cta-section {
-  position: relative;
-  overflow: hidden;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .cta-button {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--warm-pink) 0%, var(--dark-pink) 100%);
+    color: white;
+    padding: 18px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(232, 106, 146, 0.4);
+    position: relative;
+    overflow: hidden;
+    text-shadow: 1px 1px 0 var(--dark-pink);
+    animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 4px 15px rgba(232, 106, 146, 0.4); }
+    100% { box-shadow: 0 4px 25px rgba(232, 106, 146, 0.6); }
 }
 
 .cta-button:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  transition: all 0.5s ease;
-  z-index: -1;
+    content: '✨';
+    animation: twinkle 1.5s infinite;
 }
 
-.cta-button:hover:before {
-  left: 100%;
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
 }
 
-/* ========== CUTE FOOTER ========== */
-.footer-column h3 {
-  display: inline-block;
+.cta-button:hover {
+    background: linear-gradient(135deg, var(--dark-pink) 0%, var(--warm-pink) 100%);
+    transform: translateY(-3px) scale(1.05);
+    animation: none;
+    box-shadow: 0 6px 25px rgba(232, 106, 146, 0.8);
+}
+
+.hero-image {
+    margin-top: 50px;
+    position: relative;
+    animation: floatAndWobble 4s ease-in-out infinite;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));
+}
+
+@keyframes floatAndWobble {
+    0%, 100% { 
+        transform: translateY(0) rotate(-1deg); 
+    }
+    25% { 
+        transform: translateY(-15px) rotate(1deg); 
+    }
+    50% { 
+        transform: translateY(0) rotate(1deg); 
+    }
+    75% { 
+        transform: translateY(-10px) rotate(-1deg); 
+    }
+}
+
+.hero-image:before, .hero-image:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    animation: orbit 8s linear infinite;
+}
+
+.hero-image:before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23FF69B4" opacity="0.6"/></svg>');
+    top: -15px;
+    left: -15px;
+    animation-delay: 0s;
+}
+
+.hero-image:after {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23FFB347" opacity="0.6"/></svg>');
+    bottom: -15px;
+    right: -15px;
+    animation-delay: -4s;
+}
+
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(30px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(30px) rotate(-360deg);
+    }
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    background-color: var(--lavender);
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Heart-filled Products Section */
+.products {
+    padding: 100px 20px;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    background-image: 
+        url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="%23FFB6C1" opacity="0.05" d="M30,50 Q50,30 70,50 Q50,70 30,50" /></svg>');
+    background-size: 150px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 48px;
+    color: var(--dark-pink);
+    position: relative;
+    display: inline-block;
+    background-color: var(--yellow);
+    padding: 15px 40px;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.section-title h2:after {
+    content: '♥ ♥ ♥';
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: -30px;
+    left: 0;
+    background: transparent;
+    color: var(--dark-pink);
+    font-size: 24px;
+    height: auto;
+    animation: heartbeat 1.5s infinite;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color: var(--white);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    position: relative;
+    background: linear-gradient(135deg, var(--white) 0%, var(--lavender) 100%);
+}
+
+.product-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, var(--yellow) 0%, var(--warm-orange) 100%);
+    color: var(--brown);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 2;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--peach);
+}
+
+.product-image:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+    z-index: 1;
+}
+
+.product-image:after {
+    content: '❤';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: rgba(255,255,255,0.3);
+    z-index: 1;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+    position: relative;
+    z-index: 2;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1) rotate(1deg);
+}
+
+.product-info {
+    padding: 25px;
+    position: relative;
+}
+
+.product-info h3 {
+    font-size: 26px;
+    color: var(--dark-pink);
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-info h3:before {
+    content: '❤';
+    color: var(--dark-pink);
+    font-size: 20px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.product-info p {
+    color: var(--brown);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    padding-left: 30px;
+    position: relative;
+}
+
+.product-info p:before {
+    content: '→';
+    position: absolute;
+    left: 10px;
+    color: var(--pink);
+}
+
+.product-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--dark-pink);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price:before {
+    content: '♥';
+    color: var(--pink);
+    animation: heartbeat 1.5s infinite;
+    font-size: 24px;
+}
+
+.add-to-cart {
+    background: linear-gradient(135deg, var(--pink) 0%, var(--dark-pink) 100%);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-shadow: 1px 1px 0 var(--dark-pink);
+}
+
+.add-to-cart:before {
+    content: '🛒';
+    font-size: 20px;
+}
+
+.add-to-cart:after {
+    content: '❤';
+    font-size: 16px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.add-to-cart:hover {
+    background: linear-gradient(135deg, var(--dark-pink) 0%, var(--pink) 100%);
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Warm Testimonials with Hearts */
+.testimonials {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, var(--light-yellow) 0%, var(--peach) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    background: linear-gradient(135deg, white 0%, var(--light-yellow) 100%);
+    transition: all 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.testimonial-card:before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 80px;
+    color: var(--pink);
+    opacity: 0.2;
+    font-family: serif;
+    line-height: 1;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    font-size: 18px;
+    padding: 0 20px;
+}
+
+.testimonial-text:before {
+    content: '❤';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--pink);
+    opacity: 0.3;
+    font-size: 20px;
+}
+
+.testimonial-text:after {
+    content: '❤';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: var(--pink);
+    opacity: 0.3;
+    font-size: 20px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.author-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+  border: 3px solid var(--pink);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--yellow);
   position: relative;
+
+  /* Tambahan agar konten di tengah */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
+
+.author-avatar:before {
+    content: '❤';
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background-color: var(--dark-pink);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    z-index: 2;
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.author-info h4 {
+    color: var(--dark-pink);
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.author-info h4:after {
+    content: '❤';
+    color: var(--pink);
+    font-size: 16px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.author-info p {
+    color: var(--brown);
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Extra Warm CTA Section */
+.cta-section {
+    padding: 120px 20px;
+    background: linear-gradient(135deg, var(--warm-pink) 0%, var(--dark-pink) 100%);
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section h2 {
+    font-size: 48px;
+    margin-bottom: 25px;
+    text-shadow: 3px 3px 0 var(--dark-pink);
+    position: relative;
+    display: inline-block;
+}
+
+.cta-section h2:after {
+    content: '🌸❤🌸';
+    position: absolute;
+    right: -60px;
+    top: -20px;
+    font-size: 30px;
+    animation: colorChange 3s infinite;
+}
+
+.cta-section p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 0 var(--dark-pink);
+    background-color: rgba(255,255,255,0.2);
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.cta-button.white {
+    background: linear-gradient(135deg, white 0%, var(--light-yellow) 100%);
+    color: var(--dark-pink);
+    box-shadow: 0 4px 15px rgba(255,255,255,0.4);
+}
+
+.cta-button.white:before {
+    content: '✉';
+    animation: none;
+}
+
+.cta-button.white:hover {
+    background: linear-gradient(135deg, var(--light-yellow) 0%, white 100%);
+    color: var(--dark-pink);
+}
+
+/* Heart-filled Footer */
+footer {
+    background: linear-gradient(135deg, var(--brown) 0%, #5D4037 100%);
+    color: white;
+    padding: 60px 20px 20px;
+    position: relative;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-column h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: var(--yellow);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
 .footer-column h3:after {
-  content: '❤️';
-  position: absolute;
-  right: -25px;
-  animation: pulse 1s infinite;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pink) 0%, var(--yellow) 100%);
+    bottom: 0;
+    left: 0;
+    border-radius: 3px;
 }
 
-/* ========== RANDOM FLOATING ELEMENTS ========== */
-.floating-hearts {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
+.footer-column h3:before {
+    content: '❤';
+    margin-right: 10px;
+    animation: heartbeat 1.5s infinite;
 }
 
-.floating-hearts span {
-  position: absolute;
-  font-size: 1.5rem;
-  animation: float-bubble 10s linear infinite;
-  opacity: 0.7;
+.footer-column ul {
+    list-style: none;
 }
 
-.cute-corner {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: 0;
-  opacity: 0.7;
+.footer-column ul li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
 }
 
-.corner-1 {
-  top: 0;
-  left: 0;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23FF9BB3" d="M50,0 C70,20 80,40 100,50 C80,60 70,80 50,100 C30,80 20,60 0,50 C20,40 30,20 50,0 Z"/></svg>');
-  animation: wiggle 5s infinite;
+.footer-column ul li:before {
+    content: '❤';
+    position: absolute;
+    left: 0;
+    color: var(--pink);
+    animation: heartbeat 1.5s infinite;
 }
 
-.corner-2 {
-  bottom: 0;
-  right: 0;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23FFD166" d="M50,0 C70,20 80,40 100,50 C80,60 70,80 50,100 C30,80 20,60 0,50 C20,40 30,20 50,0 Z"/></svg>');
-  animation: wiggle 6s infinite reverse;
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+    padding: 5px 0;
 }
 
-.product-card:hover .product-image::after {
-  content: '🍰';
-  position: absolute;
-  font-size: 2rem;
-  bottom: 10px;
-  right: 10px;
-  animation: bounce 1s infinite;
+.footer-column ul li a:hover {
+    color: var(--yellow);
+    transform: translateX(10px);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,182,193,0.3) 100%);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s;
+    font-size: 22px;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.5s;
+}
+
+.social-links a:hover {
+    background: linear-gradient(135deg, var(--yellow) 0%, var(--warm-orange) 100%);
+    color: var(--brown);
+    transform: translateY(-5px) rotate(10deg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.social-links a:hover:before {
+    left: 100%;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    font-size: 16px;
+    position: relative;
+}
+
+.copyright:before {
+    content: '❤ Made with Love ❤';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--brown);
+    padding: 0 20px;
+    color: var(--pink);
+    font-size: 18px;
+}
+
+/* Cute Animations */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(-2deg); }
+}
+
+@keyframes colorChange {
+    0% { color: var(--pink); }
+    50% { color: var(--yellow); }
+    100% { color: var(--pink); }
+}
+
+@keyframes floatBackground {
+    0% { background-position: 0 0, 20% 30%, 40% 10%; }
+    50% { background-position: 50% 50%, 70% 80%, 90% 60%; }
+    100% { background-position: 0 0, 20% 30%, 40% 10%; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 10px;
+    }
+    
+    .hero h2 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+    
+    .section-title h2 {
+        font-size: 32px;
+    }
+    
+    .cta-section h2 {
+        font-size: 32px;
+    }
+    
+    .cta-section p {
+        font-size: 18px;
+    }
 }

@@ -1,0 +1,32 @@
+/* ========== ANIMATIONS ========== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes bubble-float {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  50% { transform: translateY(-50px) scale(1.05); opacity: 0.8; }
+  100% { transform: translateY(-100px) scale(1); opacity: 0; }
+}
+
+@keyframes heart-float {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* ========== COMPONENT ANIMATIONS ========== */
+/* Add these classes to your components */
+.float-animate {
+  animation: float 3s ease-in-out infinite;
+}
+
+.bubble-animate {
+  animation: bubble-float 8s linear infinite;
+}
+
+.heart-animate {
+  animation: heart-float 6s linear infinite;
+}

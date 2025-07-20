@@ -10,7 +10,7 @@ const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
       <p className="testimonial-text">{testimonial.text}</p>
       <div className="testimonial-author">
         <div className="author-avatar">
-          <img src={testimonial.avatar} alt={testimonial.author} />
+          {testimonial.avatar}
         </div>
         <div className="author-info">
           <h4>{testimonial.author}</h4>

@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-column">
           <h3>Tentang Kue Bintang</h3>
-          <p>Kue Bintang hadir untuk menyebarkan kebahagiaan melalui kue-kue imut dan lezat sejak 2020. Setiap kue dibuat dengan cinta dan bahan terbaik.</p>
+          <p>Kue Bintang hadir untuk menyebarkan kebahagiaan melalui kue-kue imut dan lezat sejak 2025. Setiap kue dibuat dengan cinta dan bahan terbaik.</p>
           <div className="social-links">
             <a href="#"><FaInstagram /></a>
             <a href="#"><FaFacebook /></a>
@@ -38,9 +38,9 @@ const Footer = () => {
         <div className="footer-column">
           <h3>Kontak Kami</h3>
           <ul>
-            <li><FaMapMarkerAlt /> Jl. Bintang No. 123, Jakarta</li>
-            <li><FaPhone /> (021) 1234-5678</li>
-            <li><FaWhatsapp /> 0812-3456-7890</li>
+            <li><FaMapMarkerAlt />Curug Pelangi, Desa
+ Kertawangi, Kec. Cisarua, Kabupaten Bandung Barat, Jawa Barat 40551</li>
+            <li><FaWhatsapp /> 082240303946</li>
             <li><FaEnvelope /> halo@kuebintang.com</li>
           </ul>
         </div>

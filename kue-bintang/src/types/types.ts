@@ -1,3 +1,6 @@
+// src/types/types.ts
+import type { ReactNode } from "react";
+
 export interface Product {
   id: number;
   name: string;
@@ -12,5 +15,5 @@ export interface Testimonial {
   text: string;
   author: string;
   role: string;
-  avatar: string;
+  avatar: ReactNode;
 }

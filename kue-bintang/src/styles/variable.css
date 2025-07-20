@@ -1,0 +1,30 @@
+:root {
+  /* Colors */
+  --pink: #FF9BB3;
+  --dark-pink: #E86A92;
+  --yellow: #FFD166;
+  --light-yellow: #FFF5D6;
+  --white: #FFF9FB;
+  --brown: #6D4C41;
+  
+  /* Fonts */
+  --font-primary: 'Comic Neue', cursive;
+  --font-secondary: 'Poppins', sans-serif;
+  
+  /* Spacing */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --radius-circle: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+  --shadow-md: 0 5px 15px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
+}

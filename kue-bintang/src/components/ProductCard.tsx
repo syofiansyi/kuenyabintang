@@ -1,18 +1,13 @@
-import React from 'react';
-import type { Product } from '../types/types';
+import type { Product } from "../types/types";
 
 interface ProductCardProps {
   product: Product;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div className="product-card">
-      {product.badge && (
-        <div className="product-badge animate-bounce">
-          {product.badge}
-        </div>
-      )}
+      {product.badge && <div className="product-badge">{product.badge}</div>}
       <div className="product-image">
         <img src={product.image} alt={product.name} />
       </div>
@@ -21,9 +16,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <p>{product.description}</p>
         <div className="product-price">
           <span className="price">Rp {product.price.toLocaleString()}</span>
-          <button className="add-to-cart animate-pulse">
-            + Keranjang <span className="emoji">🛒</span>
-          </button>
+     <button
+  className="add-to-cart"
+  onClick={() => {
+    const phoneNumber = "6282240303946"; // Ganti dengan nomor WhatsApp kamu
+    const message = `Halo, saya ingin memesan produk ${product.name}`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }}
+>
+  + Buy Now
+</button>
+
+
         </div>
       </div>
     </div>
