@@ -32,7 +32,7 @@ const products: Product[] = [
   {
     id: 4,
     name: "Brownies Bintang",
-    description: "Brownies cokelat premium dengan tekstur lembut di dalam dan renyah di luar, berbentuk bintang imut.",
+    description: "Brownies cokelat premium dengan tekstur lembut di dalam dan renyah di luar.",
     price: 30000,
     image: browniesImg
   }
@@ -43,7 +43,7 @@ const Products = () => {
   return (
     <section className="products" id="produk">
       <div className="section-title">
-        <h2>Koleksi Kue Imut Kami</h2>
+        <h2>Koleksi Kue Kami</h2>
       </div>
       
       <div className="product-grid">

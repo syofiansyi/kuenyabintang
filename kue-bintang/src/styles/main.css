@@ -761,7 +761,7 @@ nav ul li a:hover:before {
     content: '🌸❤🌸';
     position: absolute;
     right: -60px;
-    top: -20px;
+    top: -100%;
     font-size: 30px;
     animation: colorChange 3s infinite;
 }

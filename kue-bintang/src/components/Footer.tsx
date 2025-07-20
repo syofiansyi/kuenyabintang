@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-column">
           <h3>Tentang Kue Bintang</h3>
-          <p>Kue Bintang hadir untuk menyebarkan kebahagiaan melalui kue-kue imut dan lezat sejak 2025. Setiap kue dibuat dengan cinta dan bahan terbaik.</p>
+          <p>Kue Bintang hadir untuk menyebarkan kebahagiaan melalui kue-kue enak dan lezat sejak 2025. Setiap kue dibuat dengan cinta dan bahan terbaik.</p>
           <div className="social-links">
             <a href="#"><FaInstagram /></a>
             <a href="#"><FaFacebook /></a>
