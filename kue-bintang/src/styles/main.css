@@ -921,7 +921,7 @@ footer {
 .copyright:before {
     content: '❤ Made with Love ❤';
     position: absolute;
-    top: -10px;
+    top: -100%;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--brown);
