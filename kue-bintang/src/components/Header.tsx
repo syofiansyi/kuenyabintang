@@ -1,4 +1,3 @@
-import { FaStar } from "react-icons/fa";
 import logo from "@/assets/images/logo.png";
 
 const Header = () => {

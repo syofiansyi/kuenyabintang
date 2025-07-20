@@ -4,7 +4,6 @@ import {
   FaTiktok, 
   FaYoutube,
   FaMapMarkerAlt,
-  FaPhone,
   FaWhatsapp,
   FaEnvelope
 } from "react-icons/fa";
